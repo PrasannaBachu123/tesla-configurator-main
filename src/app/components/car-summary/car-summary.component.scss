@@ -1,0 +1,31 @@
+.model-container {
+  width: 35%;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  .model-section {
+    display: flex;
+    justify-content: space-between;
+    .mr-1 {
+      display: flex;
+      align-items: center;
+    }
+    .col-form-label {
+      white-space: nowrap;
+    }
+  }
+}
+
+h3, h4 {
+  margin: 1rem;
+}
+
+h5 {
+  margin: 0;
+}
+.car-section {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

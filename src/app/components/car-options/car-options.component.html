@@ -1,0 +1,88 @@
+<h3>Step 2: Select Your config and options</h3>
+
+<div class="model-container">
+  <div class="mb-3 model-section">
+    <label for="configSelect" class="col-sm-2 mr-1 col-form-label"
+      >Config:</label
+    >
+    <select
+      class="form-select"
+      aria-label="car-model"
+      id="configSelect"
+      (change)="getSelectedCarConfig()"
+      [(ngModel)]="selectedConfigId"
+    >
+      <option
+        *ngFor="let config of carOptions?.configs"
+        value="{{ config.id }}"
+      >
+        {{ config.description }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3 model-section" *ngIf="selectedConfig && selectedConfig?.id">
+    <label for="selectedConfig" class="col-sm-2 mr-1 col-form-label">{{
+      "Range: " +
+        selectedConfig.range +
+        " miles - " +
+        "Max Speed: " +
+        selectedConfig.speed +
+        " - " +
+        "Cost: " +
+        "$" +
+        selectedConfig.price
+    }}</label>
+  </div>
+
+  <div class="mb-3 model-section" *ngIf="carOptions?.configs?.length">
+    <label for="includeTow" class="col-sm-2 mr-1 col-form-label"
+      >Tow Hitch?</label
+    >
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value="{{ carOptions.towHitch }}"
+      id="includeTow"
+      (change)="setSelectedCarOptions()"
+      [(ngModel)]="carOptions.towHitch"
+    />
+  </div>
+
+  <div class="mb-3 model-section" *ngIf="carOptions?.configs?.length">
+    <label for="includeYoke" class="col-sm-2 mr-1 col-form-label"
+      >Yoke steerig wheel?</label
+    >
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value="{{ carOptions.yoke }}"
+      id="includeYoke"
+      (change)="setSelectedCarOptions()"
+      [(ngModel)]="carOptions.yoke"
+    />
+  </div>
+</div>
+
+<div
+  class="car-section"
+  *ngIf="
+    selectedModel &&
+    selectedModel?.carModel?.code &&
+    selectedModel?.carColor?.code
+  "
+>
+  <img
+    id="carImage"
+    width="700"
+    height="700"
+    alt="car"
+    src="{{
+      carImagePath +
+        selectedModel.carModel.code +
+        '/' +
+        selectedModel.carColor.code +
+        '.jpg'
+    }}"
+  />
+</div>

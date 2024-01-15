@@ -1,0 +1,30 @@
+.model-container {
+  width: 70%;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  .model-section {
+    display: flex;
+    .mr-1 {
+      display: flex;
+      align-items: center;
+    }
+    .form-select {
+        max-width: 35%;
+    }
+    .col-form-label {
+        white-space: nowrap;
+    }
+  }
+}
+
+h3 {
+  margin: 1rem;
+}
+
+.car-section {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

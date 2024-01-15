@@ -1,0 +1,45 @@
+<h3>Step 1: Choose Your Model and color</h3>
+
+<div class="model-container">
+  <div class="mb-3 model-section">
+    <label for="Model" class="col-sm-2 mr-1 col-form-label">Model:</label>
+    <select
+      class="form-select"
+      aria-label="car-model"
+      id="modelSelect"
+      (change)="getSelectedCarModel()"
+      [(ngModel)]="selectedCarModel"
+    >
+      <option *ngFor="let carModel of carModels" value="{{ carModel.code }}">
+        {{ carModel.description }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3 model-section">
+    <label for="Model" class="col-sm-2 mr-1 col-form-label">Color:</label>
+    <select
+      class="form-select"
+      aria-label="car-model"
+      id="colorSelect"
+      (change)="getSelectedCarColor()"
+      [(ngModel)]="selectedCarColor"
+    >
+      <option *ngFor="let carColor of carColors" value="{{ carColor.code }}">
+        {{ carColor.description }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="car-section" *ngIf="selectedCarModel && selectedCarColor">
+  <img
+    id="carImage"
+    width="700" 
+    height="700"
+    alt="car"
+    src="{{
+      carImagePath + selectedCarModel + '/' + selectedCarColor + '.jpg'
+    }}"
+  />
+</div>

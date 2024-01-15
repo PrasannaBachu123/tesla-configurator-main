@@ -1,0 +1,80 @@
+<h3>Step 3: Summary</h3>
+
+<h4>Your Tesla {{ selectedModel.carModel.description }}</h4>
+
+<div class="model-container">
+  <div class="model-section">
+    <label for="description" class="col-sm-2 mr-1 col-form-label">{{
+      selectedConfig.description
+    }}</label>
+    <label for="price" class="col-sm-2 mr-1 col-form-label"
+      >${{ selectedConfig.price }}</label
+    >
+  </div>
+  <div class="mb-2 model-section">
+    <h5 class="col-sm-2 mr-1 col-form-label">
+      {{
+        "Range: " +
+          selectedConfig.range +
+          " miles - " +
+          "Max Speed: " +
+          selectedConfig.speed
+      }}
+    </h5>
+  </div>
+  <div class="mb-2 model-section">
+    <label for="carColorDescription" class="col-sm-2 mr-1 col-form-label">{{
+      selectedModel.carColor.description + " " + "Color"
+    }}</label>
+    <label for="carColorPrice" class="col-sm-2 mr-1 col-form-label"
+      >${{ selectedModel.carColor.price }}</label
+    >
+  </div>
+  <div class="mb-2 model-section" *ngIf="selectedConfig.towHitch">
+    <label for="towHitch" class="col-sm-2 mr-1 col-form-label"
+      >Tow Hitch Package</label
+    >
+    <label for="towHitchPrice" class="col-sm-2 mr-1 col-form-label"
+      >$1000</label
+    >
+  </div>
+  <div class="mb-2 model-section" *ngIf="selectedConfig.yoke">
+    <label for="yoke" class="col-sm-2 mr-1 col-form-label">Yoke Package</label>
+    <label for="yokePrice" class="col-sm-2 mr-1 col-form-label">$1000</label>
+  </div>
+  <hr />
+  <div class="mb-2 model-section">
+    <label for="total" class="col-sm-2 mr-1 col-form-label">TOTAL COST</label>
+    <label for="totalPrice" class="col-sm-2 mr-1 col-form-label"
+      >${{
+        selectedConfig.price +
+          selectedModel.carColor.price +
+          (selectedConfig.towHitch ? 1000 : 0) +
+          (selectedConfig.yoke ? 1000 : 0)
+      }}</label
+    >
+  </div>
+</div>
+
+<div
+  class="car-section"
+  *ngIf="
+    selectedModel &&
+    selectedModel?.carModel?.code &&
+    selectedModel?.carColor?.code
+  "
+>
+  <img
+    id="carImage"
+    width="530"
+    height="600"
+    alt="car"
+    src="{{
+      carImagePath +
+        selectedModel.carModel.code +
+        '/' +
+        selectedModel.carColor.code +
+        '.jpg'
+    }}"
+  />
+</div>

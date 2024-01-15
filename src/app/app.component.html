@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid app-header">
+    <ng-container *ngFor="let step of carSteps">
+      <button
+        type="button"
+        class="btn btn-primary-outline pull-right"
+        id="{{ step.id }}"
+        (click)="navigateToCarStep(step)"
+      >
+        {{ step.label }}
+      </button>
+    </ng-container>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,26 @@
+.model-container {
+  width: 70%;
+  margin: 0 1rem;
+  display: flex;
+  .model-section {
+    display: flex;
+    width: 40%;
+    .mr-1 {
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+h3 {
+  margin: 1rem;
+}
+
+.car-section {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
