@@ -48,10 +48,9 @@ export class CarOptionsComponent implements OnInit, OnDestroy {
   }
 
   getSelectedCarConfig(): void {
-    this.selectedConfig =
-      this.carOptions.configs.find(
-        (config: Configs) => config.id === Number(this.selectedConfigId)
-      ) ?? ({} as Configs);
+    this.selectedConfig = this.carOptions.configs.find(
+      (config: Configs) => config.id === Number(this.selectedConfigId)
+    )!;
     this.setSelectedCarOptions();
   }
 

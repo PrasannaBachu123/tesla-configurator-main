@@ -15,7 +15,7 @@ import { Configs } from './models/car-options';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  carSteps = CAR_STEPS;
+  carSteps:CarStep[] = CAR_STEPS;
   selectedCarModel!: SelectedCarModel;
   selectedConfig!: Configs;
 

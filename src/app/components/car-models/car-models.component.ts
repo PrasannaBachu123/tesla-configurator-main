@@ -42,12 +42,13 @@ export class CarModelsComponent implements OnInit, OnDestroy {
         ) {
           this.selectedCarModel = this.selectedCarModelInfo.carModel.code;
           this.selectedCarColor = this.selectedCarModelInfo.carColor.code;
-          this.getSelectedCarModel();
+          this.getSelectedCarModel(true);
         }
       });
   }
 
-  getSelectedCarModel(): void {
+  getSelectedCarModel(isColorSelected: boolean): void {
+    this.selectedCarColor = isColorSelected ? this.selectedCarColor : '';
     const selectedModel: CarModel[] = this.carModels.filter(
       (carModel: CarModel) => carModel.code === this.selectedCarModel
     );
