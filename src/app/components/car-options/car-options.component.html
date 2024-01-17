@@ -35,7 +35,7 @@
     }}</label>
   </div>
 
-  <div class="mb-3 model-section" *ngIf="carOptions?.configs?.length">
+  <div class="mb-3 model-section" *ngIf="carOptions?.towHitch">
     <label for="includeTow" class="col-sm-2 mr-1 col-form-label"
       >Tow Hitch?</label
     >
@@ -44,12 +44,12 @@
       type="checkbox"
       value="{{ carOptions.towHitch }}"
       id="includeTow"
-      (change)="setSelectedCarOptions()"
+      disabled
       [(ngModel)]="carOptions.towHitch"
     />
   </div>
 
-  <div class="mb-3 model-section" *ngIf="carOptions?.configs?.length">
+  <div class="mb-3 model-section" *ngIf="carOptions?.yoke">
     <label for="includeYoke" class="col-sm-2 mr-1 col-form-label"
       >Yoke steerig wheel?</label
     >
@@ -58,7 +58,7 @@
       type="checkbox"
       value="{{ carOptions.yoke }}"
       id="includeYoke"
-      (change)="setSelectedCarOptions()"
+      disabled
       [(ngModel)]="carOptions.yoke"
     />
   </div>

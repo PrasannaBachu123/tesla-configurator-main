@@ -42,18 +42,21 @@ export class CarModelsComponent implements OnInit, OnDestroy {
         ) {
           this.selectedCarModel = this.selectedCarModelInfo.carModel.code;
           this.selectedCarColor = this.selectedCarModelInfo.carColor.code;
-          this.getSelectedCarModel(true);
+          this.getSelectedCarModel(false);
         }
       });
   }
 
-  getSelectedCarModel(isColorSelected: boolean): void {
-    this.selectedCarColor = isColorSelected ? this.selectedCarColor : '';
+  getSelectedCarModel(isModelChanged: boolean): void {
+    this.selectedCarColor = isModelChanged ? '' : this.selectedCarColor;
     const selectedModel: CarModel[] = this.carModels.filter(
       (carModel: CarModel) => carModel.code === this.selectedCarModel
     );
     this.carColors = selectedModel.length ? selectedModel[0].colors : [];
     this.setSelectedCarModel();
+    if (isModelChanged) {
+      localStorage.removeItem('selectedCarOptions')
+    }
   }
 
   getSelectedCarColor(): void {

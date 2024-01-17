@@ -26,7 +26,7 @@ export class CarOptionsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.selectedModel =
-      JSON.parse(localStorage.getItem('selectedCarModel')!) || {};
+      JSON.parse(localStorage.getItem('selectedCarModel')!) || {}; 
     this.getCarOptions();
   }
 
@@ -40,8 +40,6 @@ export class CarOptionsComponent implements OnInit, OnDestroy {
         );
         if (this.selectedConfig && this.selectedConfig.id) {
           this.selectedConfigId = this.selectedConfig.id;
-          this.carOptions.towHitch = this.selectedConfig.towHitch;
-          this.carOptions.yoke = this.selectedConfig.yoke;
           this.getSelectedCarConfig();
         }
       });

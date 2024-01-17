@@ -7,7 +7,7 @@
       class="form-select"
       aria-label="car-model"
       id="modelSelect"
-      (change)="getSelectedCarModel(false)"
+      (change)="getSelectedCarModel(true)"
       [(ngModel)]="selectedCarModel"
     >
       <option *ngFor="let carModel of carModels" value="{{ carModel.code }}">
